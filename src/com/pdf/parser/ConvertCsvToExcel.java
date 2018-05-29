@@ -22,9 +22,10 @@ public class ConvertCsvToExcel {
 	   /* ZipSecureFile.setMinInflateRatio(0.00000001);
 	    Long somev=4294967295L;
 	    ZipSecureFile.setMaxEntrySize(somev);*/
-	    Workbook workBook = null;
-	   
-	    	try( FileInputStream inputStream = new FileInputStream(file);
+	   String fileName =  mfile.getOriginalFilename();
+	   Workbook workBook = null;
+	   if(fileName.contains("PurchaseOrder")){
+		   try( FileInputStream inputStream = new FileInputStream("C:\\Users\\Venkat\\Documents\\pdf excel parser demo\\2018-05-22PO.xlsx");
 	    			Workbook workBook2 = new XSSFWorkbook(inputStream)) {
 	    		return workBook2;
 			} catch (IOException e) {
@@ -32,6 +33,18 @@ public class ConvertCsvToExcel {
 			} catch(Exception e){
 				_LOGGER.error("unable to file convert into WB: "+e.getCause());
 			}
+	   } else if(fileName.contains("Invoice")){
+		   try( FileInputStream inputStream = new FileInputStream("C:\\Users\\Venkat\\Documents\\pdf excel parser demo\\invoice_8343.xlsx");
+	    			Workbook workBook2 = new XSSFWorkbook(inputStream)) {
+	    		return workBook2;
+			} catch (IOException e) {
+				_LOGGER.error("unable to file convert into excelsheet"+e);
+			} catch(Exception e){
+				_LOGGER.error("unable to file convert into WB: "+e.getCause());
+			}
+	   } else{
+		   
+	   }
 	    //}
 		return workBook;
 	}
