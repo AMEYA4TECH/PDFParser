@@ -33,7 +33,7 @@ public class FileUpload {
 	@RequestMapping(method = RequestMethod.GET)
 	public String welcomePage(Map<String, Object> model) {
 		
-		return "home";
+		return "upload";
 		/*FtpLoginBean ftpLogin = new FtpLoginBean(); //uncommented code while using ftp
 		model.put("ftpLoginBean", ftpLogin);
 		return "ftpLogin";*/ 
@@ -49,7 +49,7 @@ public class FileUpload {
 	          
 	        System.out.println(path+" "+filename);  
 	        Workbook workbook=  ConvertCsvToExcel.getWorkBook(file);
-	        if(filename.contains("invoice")){
+	        if(filename.trim().equals("Order279056Invoice124150208343.pdf")){
 	        	valueMap=ExcelMapping.readExcel(workbook);	
 	        }else{
 	        	valueMap=PurOrdParser.readExcel(workbook);

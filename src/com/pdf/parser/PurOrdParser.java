@@ -120,15 +120,14 @@ public class PurOrdParser  {
     							break;
       						case 7://OfficeNumber
       							String Officenumber=getCellValueStrinOrInt(cell);
+      							Officenumber=Officenumber.toUpperCase();
+      							Officenumber=Officenumber.replaceAll("OFFICE: ", "");
           						PDF_MAP.put("OfficeNumber", Officenumber);
-
-
     							break;
       						case 8://Email
       							String email=getCellValueStrinOrInt(cell);
+      							email=email.replaceAll("Email: ", "");
           						PDF_MAP.put("Email", email);
-
-
     							break;
       						case 9://PONumber
       							String poNumber=getCellValueStrinOrInt(cell);
@@ -138,12 +137,14 @@ public class PurOrdParser  {
     							break;
       						case 10://Vendor
       							String Vendor=getCellValueStrinOrInt(cell);
+      							Vendor=Vendor.replaceAll("Vendor:", "");
           						PDF_MAP.put("Vendor", Vendor);
 
 
     							break;
       						case 11://SalesPerson
       							String SalesPerson=getCellValueStrinOrInt(cell);
+      							SalesPerson=SalesPerson.replaceAll("Salesperson:  ", "");
           						PDF_MAP.put("SalesPerson", SalesPerson);
 
 
@@ -199,6 +200,7 @@ public class PurOrdParser  {
     							break;
       						case 20://ShipAccount
       							String ShipAccount=getCellValueStrinOrInt(cell);
+      							ShipAccount=ShipAccount.replaceAll("Ship Account:", "");
           						PDF_MAP.put("ShipAccount", ShipAccount);
 
 
