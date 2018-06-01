@@ -25,7 +25,8 @@ public class ConvertCsvToExcel {
 	   String fileName =  mfile.getOriginalFilename();
 	   Workbook workBook = null;
 	   if(fileName.contains("PurchaseOrder")){
-		   try( FileInputStream inputStream = new FileInputStream("C:\\Users\\Venkat\\Documents\\pdf excel parser demo\\2018-05-22PO.xlsx");
+		   try( FileInputStream inputStream = new FileInputStream("D:\\Sharing Files\\Users\\Amey\\pdf demo\\pdf excel parser demo\\2018-05-22PO.xlsx");
+				//FileInputStream inputStream = new FileInputStream("C:\\Users\\Venkat\\Documents\\pdf excel parser demo\\2018-05-22PO.xlsx");
 	    			Workbook workBook2 = new XSSFWorkbook(inputStream)) {
 	    		return workBook2;
 			} catch (IOException e) {
@@ -34,7 +35,8 @@ public class ConvertCsvToExcel {
 				_LOGGER.error("unable to file convert into WB: "+e.getCause());
 			}
 	   } else if(fileName.equals("Order279056Invoice124150208343.pdf")){
-		   try( FileInputStream inputStream = new FileInputStream("C:\\Users\\Venkat\\Documents\\pdf excel parser demo\\invoice_8343.xlsx");
+		   try( FileInputStream inputStream = new FileInputStream("D:\\Sharing Files\\Users\\Amey\\pdf demo\\pdf excel parser demo\\invoice_8343.xlsx");
+				//FileInputStream inputStream = new FileInputStream("C:\\Users\\Venkat\\Documents\\pdf excel parser demo\\invoice_8343.xlsx");
 	    			Workbook workBook2 = new XSSFWorkbook(inputStream)) {
 	    		return workBook2;
 			} catch (IOException e) {
