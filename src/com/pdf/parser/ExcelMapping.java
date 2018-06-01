@@ -78,7 +78,7 @@ LinkedHashMap <String, String> valuesMap=new LinkedHashMap<String, String>();
 					    case "FILENAME":
 					    	String FILENAME=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(FILENAME)){
-					    	valuesMap.put(headerName, FILENAME);
+					    	valuesMap.put(headerName, FILENAME.trim());
 					    	}
 							break;
 					    case "RECEIVED AT":
@@ -90,151 +90,163 @@ LinkedHashMap <String, String> valuesMap=new LinkedHashMap<String, String>();
 					    case "MAINADDRESS":
 					    	String MAINADDRESS=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(MAINADDRESS)){
-					    	valuesMap.put(headerName, MAINADDRESS);
+					    	valuesMap.put(headerName, MAINADDRESS.trim());
 					    	}
 							break;
 					    case "OFFICENO":
 					    	String OFFICENO=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(OFFICENO)){
-					    		OFFICENO=OFFICENO.replace("Office:", "");
-					    	valuesMap.put(headerName, OFFICENO);
+					    		OFFICENO=OFFICENO.toUpperCase();
+					    		OFFICENO=OFFICENO.replaceAll("OFFICE:", "");
+					    	valuesMap.put(headerName, OFFICENO.trim());
 					    	}
 					    	break;
 					    case "EMAILID":
 					    	String EMAILID=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(EMAILID)){
-					    		EMAILID=EMAILID.replace("Email:", "");
-					    	valuesMap.put(headerName, EMAILID);
+					    		EMAILID=EMAILID.toUpperCase();
+					    		EMAILID=EMAILID.replace("EMAIL:", "");
+					    	valuesMap.put(headerName, EMAILID.trim());
 					    	}
 					    	break;
 					    case "SALESPERSON":
 					    	String SALESPERSON=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(SALESPERSON)){
-					    	valuesMap.put(headerName, SALESPERSON);
+					    	valuesMap.put(headerName, SALESPERSON.trim());
 					    	}
 					    	break;
 					    case "ORDERNO":
 					    	String ORDERNO=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(ORDERNO)){
-					    	valuesMap.put(headerName, ORDERNO);
+					    	valuesMap.put(headerName, ORDERNO.trim());
 					    	}
 					    	break;
 					    case "ORDERDATE":
 					    	String ORDERDATE=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(ORDERDATE)){
-					    	valuesMap.put(headerName, ORDERDATE);
+					    	valuesMap.put(headerName, ORDERDATE.trim());
 					    	}
 					    	break;
 					    case "INVOICEDATE":
 					    	String INVOICEDATE=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(INVOICEDATE)){
-					    	valuesMap.put(headerName, INVOICEDATE);
+					    	valuesMap.put(headerName, INVOICEDATE.trim());
 					    	}
 					    	break;
 					    case "BILLADDRESS":
 					    	String BILLADDRESS=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(BILLADDRESS)){
-					    	valuesMap.put(headerName, BILLADDRESS);
+					    	valuesMap.put(headerName, BILLADDRESS.trim());
 					    	}
 					    	break;
 					    case "SHIPADDRESS":
 					    	String SHIPADDRESS=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(SHIPADDRESS)){
-					    	valuesMap.put(headerName, SHIPADDRESS);
+					    	valuesMap.put(headerName, SHIPADDRESS.trim());
 					    	}
 					    	break;
 					    case "CUSTOMERNO":
 					    	String CUSTOMERNO=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(CUSTOMERNO)){
-					    	valuesMap.put(headerName, CUSTOMERNO);
+					    	valuesMap.put(headerName, CUSTOMERNO.trim());
 					    	}
 					    	break;
 					    case "TERMS":
 					    	String TERMS=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(TERMS)){
-					    	valuesMap.put(headerName, TERMS);
+					    	valuesMap.put(headerName, TERMS.trim());
 					    	}
 					    	break;
 					    case "METHOD":
 					    	String METHOD=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(METHOD)){
-					    		METHOD=METHOD.replace("d:", "");
-					    	valuesMap.put(headerName, METHOD);
+					    		METHOD=METHOD.toUpperCase();
+					    		METHOD=METHOD.replace("D:", "");
+					    	valuesMap.put(headerName, METHOD.trim());
 					    	}
 					    	break;
 					    case "SHIPVIA":
 					    	String SHIPVIA=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(SHIPVIA)){
-					    		SHIPVIA=SHIPVIA.replace("a:", "");
-					    	valuesMap.put(headerName, SHIPVIA);
+					    		SHIPVIA=SHIPVIA.toUpperCase();
+					    		SHIPVIA=SHIPVIA.replace("A:", "");
+					    	valuesMap.put(headerName, SHIPVIA.trim());
 					    	}
 					    	break;
 					    case "SHIPACCOUNT":
 					    	String SHIPACCOUNT=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(SHIPACCOUNT)){
-					    		SHIPACCOUNT=SHIPACCOUNT.replace("t:", "");
-					    	valuesMap.put(headerName, SHIPACCOUNT);
+					    		SHIPACCOUNT=SHIPACCOUNT.toUpperCase();
+					    		SHIPACCOUNT=SHIPACCOUNT.replace("T:", "");
+					    	valuesMap.put(headerName, SHIPACCOUNT.trim());
 					    	}
 					    	break;
 					    case "QUANTITY":
 					    	String QUANTITY=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(QUANTITY)){
+					    		QUANTITY=QUANTITY.toUpperCase();
 					    		QUANTITY=QUANTITY.replace("G", "");
-					    	valuesMap.put(headerName, QUANTITY);
+					    	valuesMap.put(headerName, QUANTITY.trim());
 					    	}
 					    	break;
 					    case "PRODUCTNAME":
 					    	String PRODUCTNAME=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(PRODUCTNAME)){
-					    	valuesMap.put(headerName, PRODUCTNAME);
+					    	valuesMap.put(headerName, PRODUCTNAME.trim());
 					    	}
 					    	break;
 					    case "DESCRIPTION":
 					    	String DESCRIPTION=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(DESCRIPTION)){
-					    	valuesMap.put(headerName, DESCRIPTION);
+					    	valuesMap.put(headerName, DESCRIPTION.trim());
 					    	}
 					    	break;
 					    case "UNIT":
 					    	String UNIT=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(UNIT)){
-					    	valuesMap.put(headerName, UNIT);
+					    	valuesMap.put(headerName, UNIT.trim());
 					    	}
 					    	break;
 					    case "PRODUCTPRICE":
 					    	String PRODUCTPRICE=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(PRODUCTPRICE)){
-					    	valuesMap.put(headerName, PRODUCTPRICE);
+					    	valuesMap.put(headerName, PRODUCTPRICE.trim());
 					    	}
 					    	break;
 					    case "PRICEPER":
 					    	String PRICEPER=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(PRICEPER)){
-					    	valuesMap.put(headerName, PRICEPER);
+					    	valuesMap.put(headerName, PRICEPER.trim());
 					    	}
 					    	break;
 					    case "TOTALPRICE":
 					    	String TOTALPRICE=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(TOTALPRICE)){
-					    	valuesMap.put(headerName, TOTALPRICE);
+					    	valuesMap.put(headerName, TOTALPRICE.trim());
 					    	}
 					    	break;
 					    case "ORDERTOTAL":
 					    	String ORDERTOTAL=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(ORDERTOTAL)){
-					    	valuesMap.put(headerName, ORDERTOTAL);
+					    	ORDERTOTAL=ORDERTOTAL.toUpperCase();
+					    	ORDERTOTAL=ORDERTOTAL.replace("ORDER TOTAL", "");
+					    	valuesMap.put(headerName, ORDERTOTAL.trim());
 					    	}
 					    	break;
 					    case "TOTALDUE":
 					    	String TOTALDUE=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(TOTALDUE)){
-					    	valuesMap.put(headerName, TOTALDUE);
+					    	TOTALDUE=TOTALDUE.toUpperCase();
+					    	TOTALDUE=TOTALDUE.replace("TOTAL DUE", "");
+					    	valuesMap.put(headerName, TOTALDUE.trim());
 					    	}
 					    	break;
 					    case "INSTRUCTION":
 					    	String INSTRUCTION=getCellValueStrinOrInt(cell);
 					    	if(!StringUtils.isEmpty(INSTRUCTION)){
-					    	valuesMap.put(headerName, INSTRUCTION);
+					    		INSTRUCTION=INSTRUCTION.toUpperCase();
+					    		INSTRUCTION=INSTRUCTION.replace("INSTRUCTIONS", "");
+					    		valuesMap.put(headerName, INSTRUCTION.trim());
 					    	}
 					    	
 					    	break;
