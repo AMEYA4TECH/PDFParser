@@ -11,6 +11,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.itextpdf.text.pdf.PdfReader;
+
 
 public class ConvertCsvToExcel {
 	public static final Logger _LOGGER = Logger.getLogger(ConvertCsvToExcel.class);
@@ -18,13 +20,30 @@ public class ConvertCsvToExcel {
 		
 	 //   String fileExtension = CommonUtility.getFileExtension(mfile.getOriginalFilename());
 	    File file = convertMultiPartFileIntoFile(mfile);
+	   // file.
 	    ZipSecureFile.setMinInflateRatio(0.001);
 	   /* ZipSecureFile.setMinInflateRatio(0.00000001);
 	    Long somev=4294967295L;
 	    ZipSecureFile.setMaxEntrySize(somev);*/
 	   String fileName =  mfile.getOriginalFilename();
+	  /* try {
+		PdfReader pdfFile = new PdfReader(new FileInputStream(file));
+		System.out.println("Pdf No.Of Pages:"+pdfFile.getNumberOfPages());
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}*/
 	   Workbook workBook = null;
-	   if(fileName.contains("PurchaseOrder")){
+	   if(fileName.contains("Purchase Order_ProfitMaker") || fileName.equalsIgnoreCase("ProfitMaker_po_ext_description.PDF")){//
+		   try( FileInputStream inputStream = new FileInputStream("C:\\Users\\Venkat\\Documents\\pdf excel parser demo\\PurchaseOrder ProfitMaker.xlsx");
+	    			Workbook workBook2 = new XSSFWorkbook(inputStream)) {
+	    		return workBook2;
+			} catch (IOException e) {
+				_LOGGER.error("unable to file convert into excelsheet"+e);
+			} catch(Exception e){
+				_LOGGER.error("unable to file convert into WB: "+e.getCause());
+			}
+	   } else if(fileName.contains("PurchaseOrder")){
 		   try( FileInputStream inputStream = new FileInputStream("C:\\Users\\Venkat\\Documents\\pdf excel parser demo\\2018-05-22PO.xlsx");
 	    			Workbook workBook2 = new XSSFWorkbook(inputStream)) {
 	    		return workBook2;

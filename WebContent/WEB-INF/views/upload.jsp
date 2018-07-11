@@ -67,8 +67,21 @@ h4 {
 <body>
 <h2>UPLOAD INVOICE / PO</h2>
 <div class="container">
-<form action="parseFile" method="post" enctype="multipart/form-data"> 
-  <div class="form-group">
+<form:form name="uploadBean"  enctype="multipart/form-data"
+								modelAttribute="uploadBean" action="parseFile">
+  
+   <div class="form-group">
+
+									<%-- <c:if test="${empty environemtType}"> --%>
+									<!-- <label for="sel1">Select Type Of Enviornmet</label> -->
+									<form:select class="form-control" path="fileType" id="environmentTypeId">
+										<form:option value="NONE" label="Select Type Of File"></form:option>
+										<form:option value="PO">Purchase Order</form:option>
+										<form:option value="Invoice">Invoice</form:option>
+									</form:select>
+									<%-- </c:if> --%>
+								</div>
+<div class="form-group">
     <!-- <input type="file" name="img[]" class="file"> -->
     <div class="input-group col-xs-12"> <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
       <input type="file" name="file" class="form-control input-md"/>
@@ -78,7 +91,7 @@ h4 {
     <br>
        <button type="submit" class="btn btn-primary col-md-12"> Upload File </button></a>
 </div>
-</form>
+</form:form>
 	</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
